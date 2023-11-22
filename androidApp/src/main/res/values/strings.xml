@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mes_comptes">Mes Comptes</string>
+    <string name="credit_agricole">Credit Agricole</string>
+    <string name="autres_banques">Autres Banques</string>
+    <string name="show_less">Show less</string>
+    <string name="show_more">Show more</string>
+    <string name="currency">" €"</string>
+    <string name="navigate_next">Navigate next</string>
+    <string name="back">back</string>
+</resources>

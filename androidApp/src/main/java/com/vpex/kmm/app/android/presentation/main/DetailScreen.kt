@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.vpex.kmm.app.android.R
@@ -74,14 +75,14 @@ fun DetailContent(
                     modifier = Modifier
                         .size(20.dp)
                         .align(CenterVertically),
-                    painter = painterResource(id = R.drawable.back_gray),
-                    contentDescription = "back",
+                    painter = painterResource(id = R.drawable.back),
+                    contentDescription = stringResource(R.string.back),
                     tint = MaterialTheme.colors.surface
                 )
             }
             Text(
                 modifier = Modifier.align(CenterVertically),
-                text = "Mes comptes",
+                text = stringResource(R.string.mes_comptes),
                 color = MaterialTheme.colors.surface,
                 style = MaterialTheme.typography.caption
             )
@@ -89,7 +90,7 @@ fun DetailContent(
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             modifier = Modifier.align(CenterHorizontally),
-            text = account?.balance.toString() + " €",
+            text = account?.balance.toString() + stringResource(R.string.currency),
             color = MaterialTheme.colors.primary,
             style = MaterialTheme.typography.body1
         )
@@ -141,12 +142,13 @@ fun OperationItem(operation : Operations) {
                 }
                 Text(
                     modifier = Modifier.align(CenterEnd),
-                    text = operation.amount!! + " €",
+                    text = operation.amount!! + stringResource(R.string.currency),
                     color = MaterialTheme.colors.primary,
                     style = MaterialTheme.typography.caption
                 )
             }
-            Divider(Modifier
+            Divider(
+                Modifier
                     .fillMaxWidth()
                     .height(1.dp)
                     .background(MaterialTheme.colors.onPrimary)

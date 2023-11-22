@@ -26,34 +26,25 @@ fun MyApplicationTheme(
 ) {
     val white = Color(0xFFFFFFFF)
     val black = Color(0xFF000000)
-    val gray = Color(0xFFf6f7f9)
+    val lightGray = Color(0xFFf6f7f9)
+    val gray = Color(0xFFCCCBCB)
     val blue = Color(0xFF5685df)
-    val lightBlue = Color(0xFFD8E1EA)
-    val green = Color(0xD0D0D0D0)
-    val orange = Color(0xFFFF9800)
-    val red = Color(0xFFB00020)
 
     val colors = if (darkTheme) {
         darkColors(
             primary = black,
             secondary = white,
-            background = lightBlue,
+            background = gray,
             surface = blue,
-            onPrimary = gray,
-            onSecondary = green,
-            secondaryVariant = orange,
-            onError = red
+            onPrimary = lightGray
         )
     } else {
         lightColors(
             primary = black,
             secondary = white,
-            background = lightBlue,
+            background = gray,
             surface = blue,
-            onPrimary = gray,
-            onSecondary = green,
-            secondaryVariant = orange,
-            onError = red
+            onPrimary = lightGray
         )
     }
 
