@@ -22,11 +22,6 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) = startKoin {
         appModule()
     )
 }
-
-fun initKoin() = initKoin {
-
-}
-
 fun appModule() = module {
 
     single {

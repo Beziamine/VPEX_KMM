@@ -6,6 +6,7 @@ import com.vpex.kmm.app.domain.interactor.BanksInteractor
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 class BanksViewModel(
     private val banksInteractor: BanksInteractor,
@@ -20,16 +21,16 @@ class BanksViewModel(
 
     @NativeCoroutines
     private fun getAllBanks() {
-//        allBanksMutable.value = AsyncResult.Loading
-//        viewModelScope.launch {
-//            try {
-//                val banks = banksInteractor.getAllBanks()
-//                allBanksMutable.value = AsyncResult.Success(banks)
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//                allBanksMutable.value = AsyncResult.Error(e.message.orEmpty())
-//            }
-//        }
+        allBanksMutable.value = AsyncResult.Loading
+        viewModelScope.launch {
+            try {
+                val banks = banksInteractor.getAllBanks()
+                allBanksMutable.value = AsyncResult.Success(banks)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                allBanksMutable.value = AsyncResult.Error(e.message.orEmpty())
+            }
+        }
     }
 
 }

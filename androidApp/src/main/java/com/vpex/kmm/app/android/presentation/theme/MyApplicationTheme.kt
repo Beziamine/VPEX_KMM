@@ -26,33 +26,39 @@ fun MyApplicationTheme(
 ) {
     val white = Color(0xFFFFFFFF)
     val black = Color(0xFF000000)
-    val lightGray = Color(0xFFf6f7f9)
     val gray = Color(0xFFCCCBCB)
+    val lightGray = Color(0xFFf6f7f9)
     val blue = Color(0xFF5685df)
 
     val colors = if (darkTheme) {
         darkColors(
-            primary = black,
-            secondary = white,
+            primary = white,
+            primaryVariant = white,
+            secondary = black,
+            secondaryVariant = black,
             background = gray,
             surface = blue,
-            onPrimary = lightGray
+            onSurface = black,
+            error = gray
         )
     } else {
         lightColors(
-            primary = black,
-            secondary = white,
+            primary = white,
+            primaryVariant = black,
+            secondary = black,
+            secondaryVariant = lightGray,
             background = gray,
             surface = blue,
-            onPrimary = lightGray
+            onSurface = white,
+            error = gray
         )
     }
 
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            (view.context as Activity).window.statusBarColor = colors.primary.toArgb()
-            (view.context as Activity).window.navigationBarColor = colors.primary.toArgb()
+            (view.context as Activity).window.statusBarColor = colors.secondary.toArgb()
+            (view.context as Activity).window.navigationBarColor = colors.secondary.toArgb()
         }
     }
 

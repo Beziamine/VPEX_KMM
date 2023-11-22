@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme{
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.secondary
+                    color = MaterialTheme.colors.secondaryVariant
                 ) {
                     val navController = rememberNavController()
                     MainNavGraph(navController = navController)

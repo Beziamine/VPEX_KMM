@@ -34,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.vpex.kmm.app.android.R
+import com.vpex.kmm.app.android.presentation.utils.Utils.getDateTime
 import com.vpex.kmm.app.data.model.banks.Accounts
 import com.vpex.kmm.app.data.model.banks.Operations
 
@@ -53,7 +54,7 @@ fun DetailScreen(
         Box (modifier = Modifier
             .fillMaxSize()
             .padding(innerPadding)
-            .background(MaterialTheme.colors.onPrimary)
+            .background(MaterialTheme.colors.secondaryVariant)
         ){
             DetailContent(navController,account)
         }
@@ -91,14 +92,14 @@ fun DetailContent(
         Text(
             modifier = Modifier.align(CenterHorizontally),
             text = account?.balance.toString() + stringResource(R.string.currency),
-            color = MaterialTheme.colors.primary,
+            color = MaterialTheme.colors.primaryVariant,
             style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             modifier = Modifier.align(CenterHorizontally),
             text = account?.label!!,
-            color = MaterialTheme.colors.primary,
+            color = MaterialTheme.colors.primaryVariant,
             style = MaterialTheme.typography.body2
         )
         Spacer(modifier = Modifier.height(40.dp))
@@ -121,29 +122,31 @@ fun OperationItem(operation : Operations) {
         modifier = Modifier
             .wrapContentHeight()
             .fillMaxWidth(),
-        backgroundColor = MaterialTheme.colors.secondary,
+        backgroundColor = MaterialTheme.colors.onSurface,
         elevation = 1.dp
     ) {
         Column {
-            Box (modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp)){
-                Column (Modifier.align(Alignment.CenterStart)){
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            ) {
+                Column(Modifier.align(Alignment.CenterStart)) {
                     Text(
                         text = operation.title!!,
-                        color = MaterialTheme.colors.primary,
+                        color = MaterialTheme.colors.primaryVariant,
                         style = MaterialTheme.typography.caption
                     )
                     Text(
-                        text = operation.date!!,
-                        color = MaterialTheme.colors.primary,
+                        text = getDateTime(operation.date!!),
+                        color = MaterialTheme.colors.primaryVariant,
                         style = MaterialTheme.typography.caption
                     )
                 }
                 Text(
                     modifier = Modifier.align(CenterEnd),
                     text = operation.amount!! + stringResource(R.string.currency),
-                    color = MaterialTheme.colors.primary,
+                    color = MaterialTheme.colors.primaryVariant,
                     style = MaterialTheme.typography.caption
                 )
             }
@@ -151,7 +154,7 @@ fun OperationItem(operation : Operations) {
                 Modifier
                     .fillMaxWidth()
                     .height(1.dp)
-                    .background(MaterialTheme.colors.onPrimary)
+                    .background(MaterialTheme.colors.error)
             )
         }
     }

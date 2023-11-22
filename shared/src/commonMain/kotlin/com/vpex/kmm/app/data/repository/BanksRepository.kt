@@ -7,10 +7,6 @@ class BanksRepository(
     private val banksRemoteDataSource: BanksRemoteDataSource,
 ) {
     suspend fun getAllBanks(): List<Banks> {
-        val banks = mutableListOf<Banks>()
-        banksRemoteDataSource.getAllBanks()?.map { bank ->
-            banks.add(bank)
-        }
-        return banks
+        return banksRemoteDataSource.getAllBanks()!!
     }
 }

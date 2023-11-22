@@ -8,4 +8,6 @@
     <string name="currency">" €"</string>
     <string name="navigate_next">Navigate next</string>
     <string name="back">back</string>
+    <string name="chargement">Chargement...</string>
+    <string name="erreur_text">une erreur s\'est produite lors de la récupération des données</string>
 </resources>
