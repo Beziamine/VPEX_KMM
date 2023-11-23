@@ -108,7 +108,7 @@ fun DetailContent(
             contentPadding = PaddingValues(horizontal = 0.dp, vertical = 0.dp)
         ) {
             items(
-                items = account.operations
+                items = account.operations.sortedWith(compareByDescending<Operations>{ it.date }.thenBy { it.title })
             ) { operation ->
                 OperationItem(operation)
             }
